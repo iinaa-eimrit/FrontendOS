@@ -1,0 +1,9 @@
+{
+  "extends": "../../packages/ts-config/vue.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": { "@/*": ["./src/*"] }
+  },
+  "include": ["src/**/*.ts", "src/**/*.vue", "env.d.ts"],
+  "exclude": ["node_modules", "dist"]
+}

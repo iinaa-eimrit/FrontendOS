@@ -1,0 +1,25 @@
+{
+  "name": "@frontendos/zone-docs",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite dev",
+    "build": "vite build",
+    "preview": "vite preview",
+    "typecheck": "svelte-check --tsconfig ./tsconfig.json",
+    "clean": "rimraf dist .svelte-kit"
+  },
+  "dependencies": {
+    "@frontendos/design-tokens": "workspace:*"
+  },
+  "devDependencies": {
+    "@frontendos/ts-config": "workspace:*",
+    "@sveltejs/vite-plugin-svelte": "^3.1.0",
+    "rimraf": "^5.0.0",
+    "svelte": "^4.2.0",
+    "svelte-check": "^3.8.0",
+    "typescript": "^5.5.0",
+    "vite": "^5.4.0"
+  }
+}

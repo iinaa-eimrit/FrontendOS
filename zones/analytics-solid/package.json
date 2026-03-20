@@ -1,0 +1,24 @@
+{
+  "name": "@frontendos/zone-analytics-solid",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit",
+    "clean": "rimraf dist"
+  },
+  "dependencies": {
+    "@frontendos/design-tokens": "workspace:*",
+    "solid-js": "^1.8.0"
+  },
+  "devDependencies": {
+    "@frontendos/ts-config": "workspace:*",
+    "rimraf": "^5.0.0",
+    "typescript": "^5.5.0",
+    "vite": "^5.4.0",
+    "vite-plugin-solid": "^2.10.0"
+  }
+}

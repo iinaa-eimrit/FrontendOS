@@ -1,0 +1,72 @@
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import React, { useCallback, useRef } from "react";
+import { useEditorStore } from "../store";
+export function Canvas() {
+    const canvasRef = useRef(null);
+    const elements = useEditorStore((s) => s.elements);
+    const selectedIds = useEditorStore((s) => s.selectedIds);
+    const zoom = useEditorStore((s) => s.zoom);
+    const panX = useEditorStore((s) => s.panX);
+    const panY = useEditorStore((s) => s.panY);
+    const gridEnabled = useEditorStore((s) => s.gridEnabled);
+    const setSelection = useEditorStore((s) => s.setSelection);
+    const tool = useEditorStore((s) => s.tool);
+    const addElement = useEditorStore((s) => s.addElement);
+    const handleCanvasClick = useCallback((e) => {
+        if (e.target === canvasRef.current) {
+            setSelection([]);
+        }
+        if (tool === "rectangle" || tool === "ellipse") {
+            const rect = canvasRef.current?.getBoundingClientRect();
+            if (!rect)
+                return;
+            const x = (e.clientX - rect.left - panX) / zoom;
+            const y = (e.clientY - rect.top - panY) / zoom;
+            addElement({
+                id: `el-${Date.now()}`,
+                type: tool,
+                x,
+                y,
+                width: 100,
+                height: 100,
+                rotation: 0,
+                fill: tool === "rectangle" ? "#3B82F6" : "#8B5CF6",
+                stroke: "transparent",
+                strokeWidth: 0,
+                opacity: 1,
+                locked: false,
+                visible: true,
+            });
+        }
+    }, [tool, zoom, panX, panY, setSelection, addElement]);
+    const handleElementClick = useCallback((id, e) => {
+        e.stopPropagation();
+        setSelection([id]);
+    }, [setSelection]);
+    return (_jsxs("div", { ref: canvasRef, className: "w-full h-full relative cursor-crosshair", onClick: handleCanvasClick, style: {
+            backgroundImage: gridEnabled
+                ? `radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px)`
+                : "none",
+            backgroundSize: `${20 * zoom}px ${20 * zoom}px`,
+            backgroundPosition: `${panX}px ${panY}px`,
+        }, children: [_jsx("div", { style: {
+                    transform: `translate(${panX}px, ${panY}px) scale(${zoom})`,
+                    transformOrigin: "0 0",
+                }, children: elements.map((el) => el.visible ? (_jsx("div", { onClick: (e) => handleElementClick(el.id, e), className: `absolute cursor-move ${selectedIds.includes(el.id)
+                        ? "ring-2 ring-blue-500 ring-offset-1 ring-offset-gray-950"
+                        : ""}`, style: {
+                        left: el.x,
+                        top: el.y,
+                        width: el.width,
+                        height: el.height,
+                        transform: `rotate(${el.rotation}deg)`,
+                        opacity: el.opacity,
+                        backgroundColor: el.fill,
+                        border: el.strokeWidth > 0
+                            ? `${el.strokeWidth}px solid ${el.stroke}`
+                            : "none",
+                        borderRadius: el.type === "ellipse" ? "50%" : "4px",
+                        pointerEvents: el.locked ? "none" : "auto",
+                    }, children: el.type === "text" && (_jsx("span", { className: "p-2 text-sm", children: el.label || "Text" })) }, el.id)) : null) }), elements.length === 0 && (_jsx("div", { className: "absolute inset-0 flex items-center justify-center pointer-events-none", children: _jsxs("div", { className: "text-center", children: [_jsx("p", { className: "text-gray-600 text-sm", children: "Click to add shapes to the canvas" }), _jsx("p", { className: "text-gray-700 text-xs mt-1", children: "Select a tool from the toolbar" })] }) }))] }));
+}
+//# sourceMappingURL=Canvas.js.map

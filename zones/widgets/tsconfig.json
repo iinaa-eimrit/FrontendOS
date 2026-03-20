@@ -1,0 +1,11 @@
+{
+  "extends": "../../packages/ts-config/base.json",
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "jsxImportSource": "@builder.io/qwik",
+    "baseUrl": ".",
+    "paths": { "@/*": ["./src/*"] }
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", "dist"]
+}

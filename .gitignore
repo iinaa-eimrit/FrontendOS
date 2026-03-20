@@ -1,0 +1,19 @@
+# FrontendOS
+node_modules/
+dist/
+.next/
+.svelte-kit/
+.astro/
+.output/
+.turbo/
+.vercel/
+.cache/
+coverage/
+storybook-static/
+*.tsbuildinfo
+.env
+.env.local
+.env.*.local
+*.log
+.DS_Store
+Thumbs.db

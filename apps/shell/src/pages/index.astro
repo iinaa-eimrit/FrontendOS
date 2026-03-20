@@ -1,0 +1,219 @@
+---
+import ShellLayout from "../layouts/ShellLayout.astro";
+
+/**
+ * FrontendOS — Dashboard (Home)
+ * Islands architecture: Astro static shell + React interactive islands
+ */
+---
+
+<ShellLayout title="FrontendOS — Dashboard">
+  <div class="p-8">
+    <!-- Header -->
+    <header class="mb-8">
+      <h1 class="text-3xl font-bold bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">
+        FrontendOS
+      </h1>
+      <p class="text-gray-400 mt-1">Frontend Engineering Operating System</p>
+    </header>
+
+    <!-- Zone Status Grid -->
+    <section class="mb-8">
+      <h2 class="text-lg font-semibold mb-4 text-gray-200">Micro-Frontend Zones</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <!-- Marketing Zone -->
+        <div class="bg-gray-900 border border-gray-800 rounded-xl p-5 hover:border-blue-500/50 transition-colors">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-8 h-8 rounded-lg bg-orange-500/10 flex items-center justify-center">
+              <span class="text-orange-400 text-sm font-mono">As</span>
+            </div>
+            <div>
+              <h3 class="font-medium text-sm">Marketing</h3>
+              <p class="text-xs text-gray-500">Astro · Islands + SSG</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-green-400"></span>
+            <span class="text-xs text-gray-400">Active</span>
+          </div>
+        </div>
+
+        <!-- Dashboard Zone -->
+        <div class="bg-gray-900 border border-gray-800 rounded-xl p-5 hover:border-blue-500/50 transition-colors">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-8 h-8 rounded-lg bg-blue-500/10 flex items-center justify-center">
+              <span class="text-blue-400 text-sm font-mono">Nx</span>
+            </div>
+            <div>
+              <h3 class="font-medium text-sm">Dashboard</h3>
+              <p class="text-xs text-gray-500">Next.js · SSR + RSC</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-green-400"></span>
+            <span class="text-xs text-gray-400">Active</span>
+          </div>
+        </div>
+
+        <!-- Editor Zone -->
+        <div class="bg-gray-900 border border-gray-800 rounded-xl p-5 hover:border-blue-500/50 transition-colors">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-8 h-8 rounded-lg bg-cyan-500/10 flex items-center justify-center">
+              <span class="text-cyan-400 text-sm font-mono">Re</span>
+            </div>
+            <div>
+              <h3 class="font-medium text-sm">Editor</h3>
+              <p class="text-xs text-gray-500">React · CSR + CRDT</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-green-400"></span>
+            <span class="text-xs text-gray-400">Active</span>
+          </div>
+        </div>
+
+        <!-- Analytics Zone -->
+        <div class="bg-gray-900 border border-gray-800 rounded-xl p-5 hover:border-blue-500/50 transition-colors">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-8 h-8 rounded-lg bg-indigo-500/10 flex items-center justify-center">
+              <span class="text-indigo-400 text-sm font-mono">So</span>
+            </div>
+            <div>
+              <h3 class="font-medium text-sm">Analytics</h3>
+              <p class="text-xs text-gray-500">SolidJS · Streaming</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-green-400"></span>
+            <span class="text-xs text-gray-400">Active</span>
+          </div>
+        </div>
+
+        <!-- Docs Zone -->
+        <div class="bg-gray-900 border border-gray-800 rounded-xl p-5 hover:border-blue-500/50 transition-colors">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-8 h-8 rounded-lg bg-red-500/10 flex items-center justify-center">
+              <span class="text-red-400 text-sm font-mono">Sv</span>
+            </div>
+            <div>
+              <h3 class="font-medium text-sm">Docs</h3>
+              <p class="text-xs text-gray-500">SvelteKit · SSG</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-green-400"></span>
+            <span class="text-xs text-gray-400">Active</span>
+          </div>
+        </div>
+
+        <!-- Widgets Zone -->
+        <div class="bg-gray-900 border border-gray-800 rounded-xl p-5 hover:border-blue-500/50 transition-colors">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-8 h-8 rounded-lg bg-purple-500/10 flex items-center justify-center">
+              <span class="text-purple-400 text-sm font-mono">Qw</span>
+            </div>
+            <div>
+              <h3 class="font-medium text-sm">Widgets</h3>
+              <p class="text-xs text-gray-500">Qwik · Resumable</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-yellow-400"></span>
+            <span class="text-xs text-gray-400">Idle</span>
+          </div>
+        </div>
+
+        <!-- Legacy Zone -->
+        <div class="bg-gray-900 border border-gray-800 rounded-xl p-5 hover:border-blue-500/50 transition-colors">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-8 h-8 rounded-lg bg-rose-500/10 flex items-center justify-center">
+              <span class="text-rose-400 text-sm font-mono">Ng</span>
+            </div>
+            <div>
+              <h3 class="font-medium text-sm">Legacy</h3>
+              <p class="text-xs text-gray-500">Angular · CSR</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-yellow-400"></span>
+            <span class="text-xs text-gray-400">Idle</span>
+          </div>
+        </div>
+
+        <!-- Plugins Zone -->
+        <div class="bg-gray-900 border border-gray-800 rounded-xl p-5 hover:border-blue-500/50 transition-colors">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-8 h-8 rounded-lg bg-emerald-500/10 flex items-center justify-center">
+              <span class="text-emerald-400 text-sm font-mono">Vu</span>
+            </div>
+            <div>
+              <h3 class="font-medium text-sm">Plugins</h3>
+              <p class="text-xs text-gray-500">Vue · SSR</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-yellow-400"></span>
+            <span class="text-xs text-gray-400">Idle</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Architecture Overview -->
+    <section class="mb-8">
+      <h2 class="text-lg font-semibold mb-4 text-gray-200">Architecture</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="bg-gray-900 border border-gray-800 rounded-xl p-5">
+          <h3 class="font-medium text-sm text-blue-400 mb-2">State Mesh</h3>
+          <p class="text-xs text-gray-400">Distributed state across React Query, Zustand, XState, Jotai, Pinia, NgRx</p>
+          <div class="mt-3 flex gap-1.5 flex-wrap">
+            <span class="px-2 py-0.5 text-xs bg-blue-500/10 text-blue-300 rounded">Server Cache</span>
+            <span class="px-2 py-0.5 text-xs bg-violet-500/10 text-violet-300 rounded">UI State</span>
+            <span class="px-2 py-0.5 text-xs bg-green-500/10 text-green-300 rounded">Workflow</span>
+          </div>
+        </div>
+
+        <div class="bg-gray-900 border border-gray-800 rounded-xl p-5">
+          <h3 class="font-medium text-sm text-violet-400 mb-2">Rendering Engine</h3>
+          <p class="text-xs text-gray-400">Hybrid meta-rendering: SSG, SSR, RSC, Islands, Streaming, Resumable, Edge</p>
+          <div class="mt-3 flex gap-1.5 flex-wrap">
+            <span class="px-2 py-0.5 text-xs bg-blue-500/10 text-blue-300 rounded">8 Strategies</span>
+            <span class="px-2 py-0.5 text-xs bg-violet-500/10 text-violet-300 rounded">Adaptive</span>
+          </div>
+        </div>
+
+        <div class="bg-gray-900 border border-gray-800 rounded-xl p-5">
+          <h3 class="font-medium text-sm text-green-400 mb-2">Styling Engine</h3>
+          <p class="text-xs text-gray-400">Universal runtime: Tailwind, Panda CSS, Emotion, CSS Modules, Houdini, SCSS</p>
+          <div class="mt-3 flex gap-1.5 flex-wrap">
+            <span class="px-2 py-0.5 text-xs bg-blue-500/10 text-blue-300 rounded">Multi-brand</span>
+            <span class="px-2 py-0.5 text-xs bg-violet-500/10 text-violet-300 rounded">Fluid Type</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- System Stats -->
+    <section>
+      <h2 class="text-lg font-semibold mb-4 text-gray-200">System</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="bg-gray-900 border border-gray-800 rounded-xl p-4 text-center">
+          <p class="text-2xl font-bold text-blue-400">8</p>
+          <p class="text-xs text-gray-500 mt-1">Frameworks</p>
+        </div>
+        <div class="bg-gray-900 border border-gray-800 rounded-xl p-4 text-center">
+          <p class="text-2xl font-bold text-violet-400">11</p>
+          <p class="text-xs text-gray-500 mt-1">Render Strategies</p>
+        </div>
+        <div class="bg-gray-900 border border-gray-800 rounded-xl p-4 text-center">
+          <p class="text-2xl font-bold text-green-400">9</p>
+          <p class="text-xs text-gray-500 mt-1">Styling Engines</p>
+        </div>
+        <div class="bg-gray-900 border border-gray-800 rounded-xl p-4 text-center">
+          <p class="text-2xl font-bold text-amber-400">6</p>
+          <p class="text-xs text-gray-500 mt-1">Data Protocols</p>
+        </div>
+      </div>
+    </section>
+  </div>
+</ShellLayout>

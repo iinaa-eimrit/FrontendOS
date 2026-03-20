@@ -1,0 +1,57 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "globalDependencies": ["**/.env.*local"],
+  "globalEnv": [
+    "NODE_ENV",
+    "VERCEL_URL",
+    "EDGE_CONFIG",
+    "DATABASE_URL",
+    "NEXT_PUBLIC_*"
+  ],
+  "tasks": {
+    "build": {
+      "dependsOn": ["^build"],
+      "inputs": ["src/**", "!src/**/*.test.*", "!src/**/*.spec.*"],
+      "outputs": ["dist/**", ".next/**", ".svelte-kit/**", ".astro/**", ".output/**"],
+      "env": ["NODE_ENV"]
+    },
+    "dev": {
+      "cache": false,
+      "persistent": true
+    },
+    "lint": {
+      "dependsOn": ["^build"],
+      "inputs": ["src/**", "*.config.*"]
+    },
+    "typecheck": {
+      "dependsOn": ["^build"],
+      "inputs": ["src/**", "tsconfig.json"]
+    },
+    "test": {
+      "dependsOn": ["^build"],
+      "inputs": ["src/**", "tests/**"]
+    },
+    "test:unit": {
+      "dependsOn": ["^build"],
+      "inputs": ["src/**"]
+    },
+    "test:e2e": {
+      "dependsOn": ["build"],
+      "inputs": ["src/**", "e2e/**", "playwright.config.*"]
+    },
+    "test:visual": {
+      "dependsOn": ["build"],
+      "inputs": ["src/**", ".storybook/**"]
+    },
+    "storybook": {
+      "cache": false,
+      "persistent": true
+    },
+    "lighthouse": {
+      "dependsOn": ["build"]
+    },
+    "clean": {
+      "cache": false
+    }
+  }
+}
