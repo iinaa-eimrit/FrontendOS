@@ -56,7 +56,7 @@ export function Canvas(): React.ReactElement {
   return (
     <div
       ref={canvasRef}
-      className="w-full h-full relative cursor-crosshair"
+      className="relative h-full w-full cursor-crosshair"
       onClick={handleCanvasClick}
       style={{
         backgroundImage: gridEnabled
@@ -90,17 +90,12 @@ export function Canvas(): React.ReactElement {
                 transform: `rotate(${el.rotation}deg)`,
                 opacity: el.opacity,
                 backgroundColor: el.fill,
-                border:
-                  el.strokeWidth > 0
-                    ? `${el.strokeWidth}px solid ${el.stroke}`
-                    : "none",
+                border: el.strokeWidth > 0 ? `${el.strokeWidth}px solid ${el.stroke}` : "none",
                 borderRadius: el.type === "ellipse" ? "50%" : "4px",
                 pointerEvents: el.locked ? "none" : "auto",
               }}
             >
-              {el.type === "text" && (
-                <span className="p-2 text-sm">{el.label || "Text"}</span>
-              )}
+              {el.type === "text" && <span className="p-2 text-sm">{el.label || "Text"}</span>}
             </div>
           ) : null,
         )}
@@ -108,10 +103,10 @@ export function Canvas(): React.ReactElement {
 
       {/* Empty state */}
       {elements.length === 0 && (
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+        <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
           <div className="text-center">
-            <p className="text-gray-600 text-sm">Click to add shapes to the canvas</p>
-            <p className="text-gray-700 text-xs mt-1">Select a tool from the toolbar</p>
+            <p className="text-sm text-gray-600">Click to add shapes to the canvas</p>
+            <p className="mt-1 text-xs text-gray-700">Select a tool from the toolbar</p>
           </div>
         </div>
       )}

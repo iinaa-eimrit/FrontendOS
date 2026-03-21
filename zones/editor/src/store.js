@@ -14,7 +14,7 @@ export const useEditorStore = create((set) => ({
         selectedIds: state.selectedIds.filter((sid) => sid !== id),
     })),
     updateElement: (id, updates) => set((state) => ({
-        elements: state.elements.map((el) => el.id === id ? { ...el, ...updates } : el),
+        elements: state.elements.map((el) => (el.id === id ? { ...el, ...updates } : el)),
     })),
     setSelection: (ids) => set({ selectedIds: ids }),
     setTool: (tool) => set({ tool }),

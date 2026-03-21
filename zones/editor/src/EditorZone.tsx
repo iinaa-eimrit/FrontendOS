@@ -17,7 +17,7 @@ export function EditorZone(): React.ReactElement {
 
       {/* Canvas Area */}
       <motion.div
-        className="flex-1 relative overflow-hidden"
+        className="relative flex-1 overflow-hidden"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.2 }}
@@ -25,7 +25,7 @@ export function EditorZone(): React.ReactElement {
         <Canvas />
 
         {/* Status bar */}
-        <div className="absolute bottom-0 left-0 right-0 h-8 bg-gray-900/90 backdrop-blur border-t border-gray-800 flex items-center px-4 text-xs text-gray-500 gap-4">
+        <div className="absolute bottom-0 left-0 right-0 flex h-8 items-center gap-4 border-t border-gray-800 bg-gray-900/90 px-4 text-xs text-gray-500 backdrop-blur">
           <span>Tool: {tool}</span>
           <span>Selected: {selectedIds.length}</span>
           <span className="ml-auto">FrontendOS Editor · React + Zustand + Framer Motion</span>

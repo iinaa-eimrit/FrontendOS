@@ -43,7 +43,7 @@ export function Canvas() {
         e.stopPropagation();
         setSelection([id]);
     }, [setSelection]);
-    return (_jsxs("div", { ref: canvasRef, className: "w-full h-full relative cursor-crosshair", onClick: handleCanvasClick, style: {
+    return (_jsxs("div", { ref: canvasRef, className: "relative h-full w-full cursor-crosshair", onClick: handleCanvasClick, style: {
             backgroundImage: gridEnabled
                 ? `radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px)`
                 : "none",
@@ -62,11 +62,9 @@ export function Canvas() {
                         transform: `rotate(${el.rotation}deg)`,
                         opacity: el.opacity,
                         backgroundColor: el.fill,
-                        border: el.strokeWidth > 0
-                            ? `${el.strokeWidth}px solid ${el.stroke}`
-                            : "none",
+                        border: el.strokeWidth > 0 ? `${el.strokeWidth}px solid ${el.stroke}` : "none",
                         borderRadius: el.type === "ellipse" ? "50%" : "4px",
                         pointerEvents: el.locked ? "none" : "auto",
-                    }, children: el.type === "text" && (_jsx("span", { className: "p-2 text-sm", children: el.label || "Text" })) }, el.id)) : null) }), elements.length === 0 && (_jsx("div", { className: "absolute inset-0 flex items-center justify-center pointer-events-none", children: _jsxs("div", { className: "text-center", children: [_jsx("p", { className: "text-gray-600 text-sm", children: "Click to add shapes to the canvas" }), _jsx("p", { className: "text-gray-700 text-xs mt-1", children: "Select a tool from the toolbar" })] }) }))] }));
+                    }, children: el.type === "text" && _jsx("span", { className: "p-2 text-sm", children: el.label || "Text" }) }, el.id)) : null) }), elements.length === 0 && (_jsx("div", { className: "pointer-events-none absolute inset-0 flex items-center justify-center", children: _jsxs("div", { className: "text-center", children: [_jsx("p", { className: "text-sm text-gray-600", children: "Click to add shapes to the canvas" }), _jsx("p", { className: "mt-1 text-xs text-gray-700", children: "Select a tool from the toolbar" })] }) }))] }));
 }
 //# sourceMappingURL=Canvas.js.map
