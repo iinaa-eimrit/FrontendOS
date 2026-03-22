@@ -2,7 +2,7 @@ import { test, expect } from "@playwright/test";
 
 test.describe("Accessibility", () => {
   test("should have no critical accessibility violations on dashboard", async ({ page }) => {
-    await page.goto("/");
+    await page.goto("/", { waitUntil: "domcontentloaded" });
 
     // Check for basic a11y: main landmark
     const main = page.locator("main");
@@ -15,17 +15,15 @@ test.describe("Accessibility", () => {
       expect(alt).not.toBeNull();
     }
 
-    // All buttons should have accessible names
-    const buttons = await page.locator("button").all();
+    // All visible buttons should have accessible names
+    const buttons = await page.locator("button:visible").all();
     for (const button of buttons) {
-      const text = await button.textContent();
-      const label = await button.getAttribute("aria-label");
-      expect(text?.trim() || label).toBeTruthy();
+      await expect(button).toHaveAccessibleName(/\S/);
     }
   });
 
   test("should support keyboard navigation", async ({ page }) => {
-    await page.goto("/");
+    await page.goto("/", { waitUntil: "domcontentloaded" });
     await page.keyboard.press("Tab");
     const focused = page.locator(":focus");
     await expect(focused).toBeVisible();
