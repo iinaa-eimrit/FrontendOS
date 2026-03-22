@@ -125,22 +125,30 @@ export class PrefetchEngine {
   private prefetchOnHover(): void {
     let hoverTimer: ReturnType<typeof setTimeout> | null = null;
 
-    document.addEventListener("pointerenter", (e) => {
-      const link = (e.target as HTMLElement).closest("a[href]");
-      if (!link) return;
-      const href = link.getAttribute("href");
-      if (href && this.entries.has(href)) {
-        hoverTimer = setTimeout(() => this.prefetch(href), 65);
-      }
-    }, { capture: true, passive: true });
+    document.addEventListener(
+      "pointerenter",
+      (e) => {
+        const link = (e.target as HTMLElement).closest("a[href]");
+        if (!link) return;
+        const href = link.getAttribute("href");
+        if (href && this.entries.has(href)) {
+          hoverTimer = setTimeout(() => this.prefetch(href), 65);
+        }
+      },
+      { capture: true, passive: true },
+    );
 
-    document.addEventListener("pointerleave", (e) => {
-      const link = (e.target as HTMLElement).closest("a[href]");
-      if (link && hoverTimer) {
-        clearTimeout(hoverTimer);
-        hoverTimer = null;
-      }
-    }, { capture: true, passive: true });
+    document.addEventListener(
+      "pointerleave",
+      (e) => {
+        const link = (e.target as HTMLElement).closest("a[href]");
+        if (link && hoverTimer) {
+          clearTimeout(hoverTimer);
+          hoverTimer = null;
+        }
+      },
+      { capture: true, passive: true },
+    );
   }
 
   private prefetchOnIntent(): void {

@@ -31,18 +31,20 @@ export class TransitionManager {
 
   /** Fade in an element */
   fadeIn(element: HTMLElement, duration = DEFAULT_DURATION): Animation {
-    return element.animate(
-      [{ opacity: 0 }, { opacity: 1 }],
-      { duration, easing: DEFAULT_EASING, fill: "forwards" },
-    );
+    return element.animate([{ opacity: 0 }, { opacity: 1 }], {
+      duration,
+      easing: DEFAULT_EASING,
+      fill: "forwards",
+    });
   }
 
   /** Fade out an element */
   fadeOut(element: HTMLElement, duration = DEFAULT_DURATION): Animation {
-    return element.animate(
-      [{ opacity: 1 }, { opacity: 0 }],
-      { duration, easing: DEFAULT_EASING, fill: "forwards" },
-    );
+    return element.animate([{ opacity: 1 }, { opacity: 0 }], {
+      duration,
+      easing: DEFAULT_EASING,
+      fill: "forwards",
+    });
   }
 
   /** Slide element from a direction */
@@ -58,10 +60,11 @@ export class TransitionManager {
       bottom: { transform: "translateY(100%)" },
     };
 
-    return element.animate(
-      [offsets[direction]!, { transform: "translate(0)" }],
-      { duration, easing: DEFAULT_EASING, fill: "forwards" },
-    );
+    return element.animate([offsets[direction]!, { transform: "translate(0)" }], {
+      duration,
+      easing: DEFAULT_EASING,
+      fill: "forwards",
+    });
   }
 
   /** Scale element in */

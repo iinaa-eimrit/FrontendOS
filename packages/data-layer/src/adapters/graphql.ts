@@ -42,7 +42,9 @@ export class GraphQLAdapter {
     }
 
     const headers: Record<string, string> = {};
-    response.headers.forEach((v, k) => { headers[k] = v; });
+    response.headers.forEach((v, k) => {
+      headers[k] = v;
+    });
 
     return {
       data: json.data,

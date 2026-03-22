@@ -2,7 +2,13 @@
 // Performance Budget — Validate metrics against configured budgets
 // ============================================================================
 
-import type { BudgetConfig, BudgetResult, BudgetViolation, WebVitalsMetrics, MemorySnapshot } from "./types";
+import type {
+  BudgetConfig,
+  BudgetResult,
+  BudgetViolation,
+  WebVitalsMetrics,
+  MemorySnapshot,
+} from "./types";
 
 const DEFAULT_BUDGET: Required<BudgetConfig> = {
   maxBundleSize: 250 * 1024, // 250KB
@@ -27,7 +33,12 @@ export class PerformanceBudget {
   checkVitals(metrics: WebVitalsMetrics): BudgetResult {
     const violations: BudgetViolation[] = [];
 
-    const checks: Array<{ metric: string; actual: number | null; budget: number; severity: "warning" | "error" }> = [
+    const checks: Array<{
+      metric: string;
+      actual: number | null;
+      budget: number;
+      severity: "warning" | "error";
+    }> = [
       { metric: "LCP", actual: metrics.lcp, budget: this.config.maxLCP, severity: "error" },
       { metric: "FID", actual: metrics.fid, budget: this.config.maxFID, severity: "error" },
       { metric: "CLS", actual: metrics.cls, budget: this.config.maxCLS, severity: "error" },

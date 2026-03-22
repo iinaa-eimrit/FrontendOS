@@ -28,10 +28,7 @@ export class StateMeshCore {
       ...config,
     };
 
-    if (
-      this.config.crossTab &&
-      typeof globalThis.BroadcastChannel !== "undefined"
-    ) {
+    if (this.config.crossTab && typeof globalThis.BroadcastChannel !== "undefined") {
       this.channel = new BroadcastChannel(`fos-mesh-${this.config.id}`);
       this.channel.onmessage = (e: MessageEvent) => {
         const event = e.data as StateEvent;

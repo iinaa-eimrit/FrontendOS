@@ -94,12 +94,14 @@ export class PluginSandbox {
   }
 
   /** Create a sandboxed DOM proxy */
-  createDOMProxy(container: HTMLElement): {
-    querySelector: typeof container.querySelector;
-    querySelectorAll: typeof container.querySelectorAll;
-    createElement: typeof document.createElement;
-    appendChild: typeof container.appendChild;
-  } | undefined {
+  createDOMProxy(container: HTMLElement):
+    | {
+        querySelector: typeof container.querySelector;
+        querySelectorAll: typeof container.querySelectorAll;
+        createElement: typeof document.createElement;
+        appendChild: typeof container.appendChild;
+      }
+    | undefined {
     if (!this.permissions.has("dom:read") && !this.permissions.has("dom:write")) {
       return undefined;
     }
@@ -111,10 +113,14 @@ export class PluginSandbox {
       querySelectorAll: container.querySelectorAll.bind(container),
       createElement: canWrite
         ? document.createElement.bind(document)
-        : () => { throw new Error("DOM write not permitted"); },
+        : () => {
+            throw new Error("DOM write not permitted");
+          },
       appendChild: canWrite
         ? container.appendChild.bind(container)
-        : () => { throw new Error("DOM write not permitted"); },
+        : () => {
+            throw new Error("DOM write not permitted");
+          },
     };
   }
 

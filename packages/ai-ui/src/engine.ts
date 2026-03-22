@@ -36,10 +36,7 @@ export class AIUIEngine {
   }
 
   /** Generate a variation of an existing component */
-  async generateVariation(
-    componentCode: string,
-    instruction: string,
-  ): Promise<GenerationResult> {
+  async generateVariation(componentCode: string, instruction: string): Promise<GenerationResult> {
     const startTime = performance.now();
 
     const components = await this.generator.generate({

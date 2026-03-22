@@ -93,12 +93,14 @@ export class SemanticAnalyzer {
       severity: "critical",
       wcag: "1.3.1",
       check: (root) =>
-        Array.from(root.querySelectorAll("input:not([type=hidden]):not([type=submit]):not([type=button])"))
+        Array.from(
+          root.querySelectorAll("input:not([type=hidden]):not([type=submit]):not([type=button])"),
+        )
           .filter(
             (input) =>
-              !input.getAttribute("aria-label") &&
-              !input.getAttribute("aria-labelledby") &&
-              !input.id ||
+              (!input.getAttribute("aria-label") &&
+                !input.getAttribute("aria-labelledby") &&
+                !input.id) ||
               (input.id && !root.querySelector(`label[for="${CSS.escape(input.id)}"]`)),
           )
           .map((el) => ({
@@ -168,7 +170,8 @@ export class SemanticAnalyzer {
       return sum + weights[i.severity];
     }, 0);
 
-    const score = maxPenalty === 0 ? 100 : Math.max(0, 100 - Math.round((penalty / maxPenalty) * 100));
+    const score =
+      maxPenalty === 0 ? 100 : Math.max(0, 100 - Math.round((penalty / maxPenalty) * 100));
 
     return {
       timestamp: Date.now(),

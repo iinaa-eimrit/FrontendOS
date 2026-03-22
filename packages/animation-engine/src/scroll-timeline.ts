@@ -17,11 +17,7 @@ export class ScrollTimeline {
   private idCounter = 0;
 
   /** Create a scroll-driven animation */
-  create(
-    element: HTMLElement,
-    keyframes: Keyframe[],
-    config: ScrollTimelineConfig,
-  ): string {
+  create(element: HTMLElement, keyframes: Keyframe[], config: ScrollTimelineConfig): string {
     const id = `scroll_${++this.idCounter}`;
     const triggerEl = document.querySelector(config.trigger);
     if (!triggerEl) return id;
@@ -90,11 +86,7 @@ export class ScrollTimeline {
     this.updateElement(element, keyframes, progress);
   }
 
-  private updateElement(
-    element: HTMLElement,
-    keyframes: Keyframe[],
-    progress: number,
-  ): void {
+  private updateElement(element: HTMLElement, keyframes: Keyframe[], progress: number): void {
     // Find surrounding keyframes
     let startKf = keyframes[0]!;
     let endKf = keyframes[keyframes.length - 1]!;

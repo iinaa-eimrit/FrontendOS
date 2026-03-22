@@ -13,7 +13,10 @@ export class PluginMarketplace {
   }
 
   /** Search for plugins */
-  async search(query: string, options?: { tags?: string[]; page?: number; limit?: number }): Promise<{
+  async search(
+    query: string,
+    options?: { tags?: string[]; page?: number; limit?: number },
+  ): Promise<{
     results: MarketplaceEntry[];
     total: number;
     page: number;

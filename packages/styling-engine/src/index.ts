@@ -6,10 +6,4 @@
 export { ThemeRuntime, createThemeRuntime } from "./theme-runtime";
 export { StyleOrchestrator } from "./orchestrator";
 export { FluidTypography } from "./fluid-typography";
-export type {
-  StylingStrategy,
-  ThemeConfig,
-  ThemeMode,
-  BrandConfig,
-  StyleContext,
-} from "./types";
+export type { StylingStrategy, ThemeConfig, ThemeMode, BrandConfig, StyleContext } from "./types";

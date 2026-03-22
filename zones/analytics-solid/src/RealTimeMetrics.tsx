@@ -38,41 +38,40 @@ export const RealTimeMetrics: Component = () => {
   });
 
   return (
-    <div class="p-8 bg-gray-950 text-gray-50 min-h-full" data-zone="analytics-solid" data-framework="solid">
-      <div class="flex items-center justify-between mb-8">
+    <div
+      class="min-h-full bg-gray-950 p-8 text-gray-50"
+      data-zone="analytics-solid"
+      data-framework="solid"
+    >
+      <div class="mb-8 flex items-center justify-between">
         <div>
           <h1 class="text-2xl font-bold text-gray-100">Real-Time Analytics</h1>
-          <p class="text-sm text-gray-500 mt-1">
+          <p class="mt-1 text-sm text-gray-500">
             SolidJS · Fine-grained reactivity · Streaming · Tick #{tickCount()}
           </p>
         </div>
         <div class="flex items-center gap-2">
-          <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
+          <span class="h-2 w-2 animate-pulse rounded-full bg-green-400" />
           <span class="text-xs text-green-400">Live</span>
         </div>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
         <For each={metrics()}>
           {(metric) => (
-            <div class="bg-gray-900 border border-gray-800 rounded-xl p-5 hover:border-gray-700 transition-colors">
-              <div class="flex items-center justify-between mb-3">
-                <span class="text-xs text-gray-500 uppercase tracking-wider">
-                  {metric.name}
-                </span>
-                <div
-                  class="w-2 h-2 rounded-full"
-                  style={{ "background-color": metric.color }}
-                />
+            <div class="rounded-xl border border-gray-800 bg-gray-900 p-5 transition-colors hover:border-gray-700">
+              <div class="mb-3 flex items-center justify-between">
+                <span class="text-xs uppercase tracking-wider text-gray-500">{metric.name}</span>
+                <div class="h-2 w-2 rounded-full" style={{ "background-color": metric.color }} />
               </div>
               <p class="text-3xl font-bold" style={{ color: metric.color }}>
                 {typeof metric.value === "number" && metric.value >= 1000
                   ? `${(metric.value / 1000).toFixed(1)}k`
                   : metric.value}
-                <span class="text-sm text-gray-500 ml-1">{metric.unit}</span>
+                <span class="ml-1 text-sm text-gray-500">{metric.unit}</span>
               </p>
               {/* Mini sparkline placeholder */}
-              <div class="mt-3 h-8 bg-gray-800 rounded flex items-end gap-px overflow-hidden">
+              <div class="mt-3 flex h-8 items-end gap-px overflow-hidden rounded bg-gray-800">
                 <For each={Array.from({ length: 20 })}>
                   {(_, i) => (
                     <div

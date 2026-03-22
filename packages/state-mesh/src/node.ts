@@ -41,9 +41,7 @@ export function createStateNode<T>(config: StateNodeConfig<T>): StateNode<T> {
 
     set(newValue: T): void {
       if (config.validate && !config.validate(newValue)) return;
-      const transformed = config.transform
-        ? config.transform(value, newValue)
-        : newValue;
+      const transformed = config.transform ? config.transform(value, newValue) : newValue;
       value = transformed;
       notify();
     },

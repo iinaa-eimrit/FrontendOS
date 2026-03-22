@@ -3,11 +3,11 @@
 // ============================================================================
 
 export type HydrationStrategy =
-  | "full"          // Standard full hydration
-  | "partial"       // Only hydrate interactive parts
-  | "progressive"   // Hydrate in priority order
-  | "lazy"          // Hydrate on interaction/visibility
-  | "none";         // Static, no hydration (SSG/Islands)
+  | "full" // Standard full hydration
+  | "partial" // Only hydrate interactive parts
+  | "progressive" // Hydrate in priority order
+  | "lazy" // Hydrate on interaction/visibility
+  | "none"; // Static, no hydration (SSG/Islands)
 
 interface HydrationTask {
   zoneId: string;

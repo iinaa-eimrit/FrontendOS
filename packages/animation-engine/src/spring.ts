@@ -21,10 +21,7 @@ export class SpringEngine {
   }
 
   /** Generate spring values from 0 to 1, calling onUpdate each frame */
-  animate(
-    onUpdate: (value: number) => void,
-    onComplete?: () => void,
-  ): () => void {
+  animate(onUpdate: (value: number) => void, onComplete?: () => void): () => void {
     const { mass, stiffness, damping, initialVelocity, restThreshold, restVelocityThreshold } =
       this.config;
 
@@ -54,8 +51,7 @@ export class SpringEngine {
       onUpdate(position);
 
       const isAtRest =
-        Math.abs(position - 1) < restThreshold! &&
-        Math.abs(velocity) < restVelocityThreshold!;
+        Math.abs(position - 1) < restThreshold! && Math.abs(velocity) < restVelocityThreshold!;
 
       if (isAtRest) {
         onUpdate(1);

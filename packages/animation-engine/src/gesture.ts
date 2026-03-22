@@ -11,11 +11,7 @@ export class GestureEngine {
   private idCounter = 0;
 
   /** Bind a gesture to an element */
-  bind(
-    element: HTMLElement,
-    config: GestureConfig,
-    handler: GestureHandler,
-  ): string {
+  bind(element: HTMLElement, config: GestureConfig, handler: GestureHandler): string {
     const id = `gesture_${++this.idCounter}`;
 
     switch (config.type) {
@@ -95,8 +91,14 @@ export class GestureEngine {
       if (config.axis === "y") dx = 0;
 
       if (config.bounds) {
-        dx = Math.max(config.bounds.left ?? -Infinity, Math.min(config.bounds.right ?? Infinity, dx));
-        dy = Math.max(config.bounds.top ?? -Infinity, Math.min(config.bounds.bottom ?? Infinity, dy));
+        dx = Math.max(
+          config.bounds.left ?? -Infinity,
+          Math.min(config.bounds.right ?? Infinity, dx),
+        );
+        dy = Math.max(
+          config.bounds.top ?? -Infinity,
+          Math.min(config.bounds.bottom ?? Infinity, dy),
+        );
       }
 
       const velocityX = e.clientX - lastX;
@@ -196,11 +198,7 @@ export class GestureEngine {
     });
   }
 
-  private bindHover(
-    id: string,
-    element: HTMLElement,
-    handler: GestureHandler,
-  ): void {
+  private bindHover(id: string, element: HTMLElement, handler: GestureHandler): void {
     const base: GestureState = {
       active: false,
       x: 0,

@@ -49,7 +49,9 @@ export class BundleAnalyzer {
     if (typeof performance === "undefined") return [];
     return performance
       .getEntriesByType("resource")
-      .filter((e) => (e as PerformanceResourceTiming).initiatorType === "script") as PerformanceResourceTiming[];
+      .filter(
+        (e) => (e as PerformanceResourceTiming).initiatorType === "script",
+      ) as PerformanceResourceTiming[];
   }
 
   private extractName(url: string): string {

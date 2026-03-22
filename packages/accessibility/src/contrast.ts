@@ -35,10 +35,7 @@ export class ContrastChecker {
 
     if (!fg || !bg) return null;
 
-    return this.check(
-      this.rgbToHex(fg),
-      this.rgbToHex(bg),
-    );
+    return this.check(this.rgbToHex(fg), this.rgbToHex(bg));
   }
 
   /** Suggest a passing foreground color given a background */

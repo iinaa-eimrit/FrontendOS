@@ -56,11 +56,19 @@ export class RestAdapter {
     return this.request<T>({ url, method: "GET", ...config });
   }
 
-  async post<T>(url: string, body: unknown, config?: Partial<RequestConfig>): Promise<DataResponse<T>> {
+  async post<T>(
+    url: string,
+    body: unknown,
+    config?: Partial<RequestConfig>,
+  ): Promise<DataResponse<T>> {
     return this.request<T>({ url, method: "POST", body, ...config });
   }
 
-  async put<T>(url: string, body: unknown, config?: Partial<RequestConfig>): Promise<DataResponse<T>> {
+  async put<T>(
+    url: string,
+    body: unknown,
+    config?: Partial<RequestConfig>,
+  ): Promise<DataResponse<T>> {
     return this.request<T>({ url, method: "PUT", body, ...config });
   }
 

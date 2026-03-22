@@ -77,7 +77,9 @@ export class KeyboardEngine {
     document.addEventListener("keydown", this.listener);
   }
 
-  private serializeBinding(binding: Pick<KeyBinding, "key" | "ctrl" | "alt" | "shift" | "meta">): string {
+  private serializeBinding(
+    binding: Pick<KeyBinding, "key" | "ctrl" | "alt" | "shift" | "meta">,
+  ): string {
     const parts: string[] = [];
     if (binding.ctrl) parts.push("Ctrl");
     if (binding.alt) parts.push("Alt");

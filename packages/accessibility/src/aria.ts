@@ -33,7 +33,10 @@ export class AriaManager {
         this.setupTabList(element);
         break;
       case "menu":
-        element.setAttribute("aria-orientation", element.getAttribute("aria-orientation") ?? "vertical");
+        element.setAttribute(
+          "aria-orientation",
+          element.getAttribute("aria-orientation") ?? "vertical",
+        );
         break;
       case "progressbar":
         if (!element.getAttribute("aria-valuemin")) element.setAttribute("aria-valuemin", "0");

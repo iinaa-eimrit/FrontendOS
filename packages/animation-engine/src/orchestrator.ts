@@ -2,12 +2,7 @@
 // Animation Orchestrator — Manages all active animations
 // ============================================================================
 
-import type {
-  AnimationConfig,
-  AnimationInstance,
-  AnimationState,
-  Keyframe,
-} from "./types";
+import type { AnimationConfig, AnimationInstance, AnimationState, Keyframe } from "./types";
 
 export class AnimationOrchestrator {
   private instances = new Map<string, ManagedAnimation>();
@@ -26,10 +21,7 @@ export class AnimationOrchestrator {
   }
 
   /** Create and start an animation on an element */
-  animate(
-    element: HTMLElement,
-    config: AnimationConfig,
-  ): AnimationInstance {
+  animate(element: HTMLElement, config: AnimationConfig): AnimationInstance {
     if (this.prefersReducedMotion) {
       return this.createNoopInstance();
     }

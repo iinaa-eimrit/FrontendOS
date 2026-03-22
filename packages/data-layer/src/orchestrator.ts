@@ -27,7 +27,10 @@ export class DataOrchestrator {
   }
 
   /** Execute a GraphQL query */
-  async graphqlQuery<T>(query: string, variables?: Record<string, unknown>): Promise<DataResponse<T>> {
+  async graphqlQuery<T>(
+    query: string,
+    variables?: Record<string, unknown>,
+  ): Promise<DataResponse<T>> {
     if (!this.graphql) throw new Error("GraphQL adapter not configured");
     return this.graphql.query<T>({ query, variables });
   }

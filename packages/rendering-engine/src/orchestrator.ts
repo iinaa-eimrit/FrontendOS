@@ -90,8 +90,6 @@ export class RenderingOrchestrator {
   }
 }
 
-export function createRenderingOrchestrator(
-  config: RenderingEngineConfig,
-): RenderingOrchestrator {
+export function createRenderingOrchestrator(config: RenderingEngineConfig): RenderingOrchestrator {
   return new RenderingOrchestrator(config);
 }

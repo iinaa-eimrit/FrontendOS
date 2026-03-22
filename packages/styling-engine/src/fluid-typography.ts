@@ -10,12 +10,7 @@ export class FluidTypography {
    * @param minViewport - Minimum viewport width in px (default: 375)
    * @param maxViewport - Maximum viewport width in px (default: 1440)
    */
-  static clamp(
-    minSize: number,
-    maxSize: number,
-    minViewport = 375,
-    maxViewport = 1440,
-  ): string {
+  static clamp(minSize: number, maxSize: number, minViewport = 375, maxViewport = 1440): string {
     const slope = (maxSize - minSize) / (maxViewport - minViewport);
     const intercept = minSize - slope * minViewport;
     const slopeVw = +(slope * 100).toFixed(4);
