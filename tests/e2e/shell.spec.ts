@@ -4,7 +4,7 @@ test.describe("Shell App", () => {
   test("should load the dashboard", async ({ page }) => {
     await page.goto("/");
     await expect(page).toHaveTitle(/FrontendOS/);
-    await expect(page.locator("text=FrontendOS Dashboard")).toBeVisible();
+    await expect(page.getByRole("heading", { name: "FrontendOS" })).toBeVisible();
   });
 
   test("should display zone status cards", async ({ page }) => {
